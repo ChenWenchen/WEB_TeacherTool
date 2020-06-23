@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>教师反馈助手</title>
+  <link rel="stylesheet" href=".\js\layui\css\layui.css">
+  <style>
+	    #BigTabAddBnt{
+			float: right;
+			background-color:#d2d2d2 ;
+			color: black;
+		}
+		.myRaters{
+			border:1px solid cornflowerblue;
+			margin: 5px 10px;
+			padding-left: 10px;
+		}
+		.studentName{
+			display: inline-block;
+			width: 65px;
+			text-align: center;
+		}
+		#raterArea{
+			margin-top: 20px;
+			padding: 5px;
+
+		}
+		.layui-elem-field{
+			margin-top: 50px;
+		}
+		.layui-btn-sm{
+			line-height: 0px;
+		}
+	  	tr{
+			border: 2px solid white;
+		}
+	    .rDiv{
+			margin-top: 15px;
+		}
+  </style>
+</head>
+
+<body>
+	<div class="layui-container">
+
+
+		<fieldset class="layui-elem-field">
+			<legend>第一步 - 上传学生名单</legend>
+			<div class="layui-field-box">
+				<!--第一步内容-->
+				<input type="file" id="file"/>
+				<!--第一步内容-->
+			</div>
+		</fieldset>
+
+
+		<fieldset class="layui-elem-field layui-field-title">
+			<legend>第二步 - 设置评价规则</legend>
+			<div class="layui-field-box">
+				<div>
+					<button id="ImportTpl" class="layui-btn layui-btn-normal" >导入已有模板</button>
+					<button id="SaveTpl" class="layui-btn layui-btn-normal" >保存已填话术</button>
+					<button id="BigTabAddBnt" class="layui-btn site-demo-active" data-type="BigTabAdd" ><i class="layui-icon">&#xe61f;</i> 评价项目</button>
+				</div>
+				<!--第二步内容-->
+				<div class="layui-tab  layui-tab-card" lay-filter="BigTab" lay-allowclose="true">
+					<ul class="layui-tab-title">
+					</ul>
+					<div class="layui-tab-content ">
+					</div>
+				</div>
+				<div class="site-demo-button" style="margin-bottom: 0;">
+					<button id="GetWordsBnt" class="layui-btn site-demo-active layui-btn-normal" data-type="GetWords">填好了</button>
+				</div>
+				<!--第二步内容-->
+			</div>
+			<hr>
+		</fieldset>
+
+
+		<fieldset class="layui-elem-field">
+			<legend>第三步 - 打分评价</legend>
+			<div class="layui-field-box">
+				<!--第三步内容-->
+				<table id="raterArea" class="layui-bg-cyan"></table>
+				<!--第三步内容-->
+			</div>
+		</fieldset>
+
+
+		<fieldset class="layui-elem-field">
+			<legend>第四步 - 生成反馈内容</legend>
+			<div class="layui-field-box">
+				<textarea style='overflow:scroll; width:700px; height:150px' id="reportTpl">【姓名】家长您好~打扰您一下，给您反馈一下【姓名2】最近的一些情况：上课状态方面【评价1】。作业情况方面【评价2】。出勤方面，【姓名】【评价3】。最后提醒您一下，我们的续报马上截止了~记得留意一下哦。希望孩子加油~~~我们也一起努力！</textarea>
+				<!--第四步内容-->
+				<button id="GenerateReport" class="layui-btn site-demo-active layui-btn-normal" data-type="GenerateReport">生成反馈</button>
+
+				<div id="reportResult">
+				</div>
+
+				<!--第四步内容-->
+			</div>
+		</fieldset>
+
+
+	</div>
+
+	<script src=".\js\jquery-3.4.1.min.js"></script>
+	<script src=".\js\layui\layui.js"></script>
+	<script src=".\js\GeneralFeedBack.js"></script>
+	<script src=".\js\readExcel.js"></script>
+	<script src=".\js\xlsx.full.min.js"></script>
+	<script src=".\js\clipboard.min.js"></script>
+</body>
+</html>

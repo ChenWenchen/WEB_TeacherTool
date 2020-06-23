@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>教师反馈助手</title>
+    <link rel="stylesheet" href=".\js\layui\css\layui.css">
+    <style>
+        .oneTab{
+            border: black 1px solid;
+            width:1000px;height: 175px;
+            padding: 10px;
+            font-size:17px;
+            background-color: lightblue;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="layui-container">
+    <fieldset class="layui-elem-field">
+        <legend>第一步 - 上传学生成绩</legend>
+        <div class="layui-field-box">
+            <!--第一步内容-->
+            <input type="file" id="file"/>
+            <!--第一步内容-->
+        </div>
+        <div id="demoScoreList" style="display:none;overflow-x: auto; overflow-y: auto; height: 300px; width:100%;">
+        </div>
+    </fieldset>
+
+
+
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>第二步 - 设置评价规则</legend>
+        <div class="layui-field-box">
+            <div class="oneTab" style="">
+
+                <div class="layui-tab layui-tab-card" lay-filter="module1" lay-allowclose="true" style="float: right;width: 600px">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this">满分</li>
+                        <li>90多</li>
+                        <li>80多</li>
+                        <li>70多</li>
+                    </ul>
+                    <div class="layui-tab-content" style="height: 90px;background-color: azure">
+                        <div class="layui-tab-item layui-show">
+                            <div class="">
+                                <label class="layui-input-inline">当</label>
+                                <div class="layui-input-inline" style="width: 50px;">
+                                    <input type="text" name="price_min" placeholder="80" autocomplete="off" class="layui-input">
+                                </div>
+                                <div class="layui-input-inline"> ≤ 该项得分 < </div>
+                                <div class="layui-input-inline" style="width: 50px;">
+                                    <input type="text" name="price_max" placeholder="90" autocomplete="off" class="layui-input">
+                                </div>
+                                <div class="layui-input-inline"> 时：</div>
+                            </div>
+                            <div class="" style="margin-top: 10px">
+                                <label class="layui-input-inline">对应的评价为：</label>
+                                <div class="layui-input-inline">
+                                    <input style="width: 450px;" type="text" autocomplete="off" placeholder="请输入评价" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-tab-item">
+                            1. 我个人比较喜欢卡片风格的，所以你发现又是以卡片的风格举例
+                            2. 删除功能适用于所有风格
+                        </div>
+                        <div class="layui-tab-item">3</div>
+                        <div class="layui-tab-item">4</div>
+                        <div class="layui-tab-item">5</div>
+                    </div>
+                </div>
+
+                <div class="" style="margin-top: 10px;">
+                    <label class="layui-input-inline">模块名：</label>
+                    <div class="layui-input-inline">
+                        <input style="width: 150px;" type="text" autocomplete="off" placeholder="电学模块分数" class="layui-input">
+                    </div>
+                    <div class="layui-input-inline">
+                        <button style="width: 150px;" id="setQuestion" type="button" class="layui-btn layui-btn-normal">设置所属题目</button>
+                    </div>
+                </div>
+
+                <button class="layui-btn site-demo-active" data-type="tabAdd">新增等级</button>
+
+            </div>
+        </div>
+        <hr>
+    </fieldset>
+
+
+    <fieldset class="layui-elem-field">
+        <legend>第四步 - 生成反馈内容</legend>
+    </fieldset>
+
+
+</div>
+
+
+
+<script src=".\js\jquery-3.4.1.min.js"></script>
+<script src=".\js\layui\layui.js"></script>
+<script src=".\js\AnalyseScore.js"></script>
+<script src=".\js\readExcel.js"></script>
+<script src=".\js\xlsx.full.min.js"></script>
+<script src=".\js\clipboard.min.js"></script>
+</body>
+</html>
